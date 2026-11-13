@@ -1,24 +1,40 @@
-# README
+# 592 Industries Rails Blog
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A small Rails application for creating and managing articles and their comments. Articles support create, read, update, and delete operations. Each article can have multiple comments, which can be added and removed from its page.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby 3.2.8
+- Rails 8.1.4
+- SQLite3
+- Bundler
 
-* System dependencies
+Dependencies are listed in `Gemfile` and locked in `Gemfile.lock`. The application also uses Puma, Propshaft, Turbo, Stimulus, and Importmap as configured by Rails.
 
-* Configuration
+## Setup
 
-* Database creation
+Install the bundle and prepare the database:
 
-* Database initialization
+```sh
+bundle install
+bin/rails db:create
+bin/rails db:migrate
+```
 
-* How to run the test suite
+Start the development server:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+bin/rails server
+```
 
-* Deployment instructions
+Open the local server and navigate to `/articles` to manage articles and comments.
 
-* ...
+## Tests
+
+Run the Minitest suite with:
+
+```sh
+bin/rails test
+```
+
+The repository also includes `bin/rubocop`, `bin/brakeman`, and `bin/bundler-audit` for style and security checks.
