@@ -1,0 +1,5 @@
+<article id="<%= dom_id(comment) %>">
+  <p><strong><%= comment.commenter %></strong></p>
+  <p><%= comment.body %></p>
+  <%= button_to "Delete comment", article_comment_path(comment.article, comment), method: :delete %>
+</article>

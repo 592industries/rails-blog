@@ -1,0 +1,24 @@
+<%= form_with model: [ article, comment ] do |form| %>
+  <% if comment.errors.any? %>
+    <div role="alert">
+      <h3><%= pluralize(comment.errors.count, "error") %> prevented this comment from being saved:</h3>
+      <ul>
+        <% comment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :commenter %>
+    <%= form.text_field :commenter %>
+  </div>
+
+  <div>
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+
+  <%= form.submit "Add comment" %>
+<% end %>

@@ -2,6 +2,16 @@
 
 <%= render @article %>
 
+<section id="comments">
+  <h2>Comments</h2>
+  <%= render @article.comments %>
+</section>
+
+<section id="new-comment">
+  <h2>Add a comment</h2>
+  <%= render "comments/form", article: @article, comment: @comment %>
+</section>
+
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
   <%= link_to "Back to articles", articles_path %>
