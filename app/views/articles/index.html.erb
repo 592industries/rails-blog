@@ -6,7 +6,11 @@
 
 <div id="articles">
   <% @articles.each do |article| %>
-    <%= render article %>
+    <h2><%= article.title %></h2>
+    <p>
+      <%= truncate(article.body.to_s, length: 150) %>
+    </p>
+    <p><%= pluralize(article.comments.size, "comment") %></p>
     <p>
       <%= link_to "Show this article", article %>
     </p>

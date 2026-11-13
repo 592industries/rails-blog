@@ -19,15 +19,22 @@ Install the bundle and prepare the database:
 bundle install
 bin/rails db:create
 bin/rails db:migrate
+bin/rails db:seed
 ```
 
-Start the development server:
+Article browsing and comment submission are public. Article creation, editing, deletion, and comment deletion use HTTP Basic Authentication. Set both `BLOG_USERNAME` and `BLOG_PASSWORD` in the server environment before starting the app. If either variable is missing, Rails uses a fresh random fallback and protected actions remain inaccessible. Do not commit credentials or place them in source files.
+
+For example, set the variables in the shell that will run the server:
 
 ```sh
+export BLOG_USERNAME="your-username"
+export BLOG_PASSWORD="your-password"
 bin/rails server
 ```
 
-Open the local server and navigate to `/articles` to manage articles and comments.
+On PowerShell, use `$env:BLOG_USERNAME = "your-username"` and `$env:BLOG_PASSWORD = "your-password"` before running `bin/rails server`.
+
+Open the local server and navigate to `/articles` to browse articles, read comments, and add comments. The idempotent seed data provides three example articles and comments.
 
 ## Tests
 

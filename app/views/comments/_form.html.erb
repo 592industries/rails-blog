@@ -1,6 +1,6 @@
 <%= form_with model: [ article, comment ] do |form| %>
   <% if comment.errors.any? %>
-    <div role="alert">
+    <div role="alert" class="validation-errors">
       <h3><%= pluralize(comment.errors.count, "error") %> prevented this comment from being saved:</h3>
       <ul>
         <% comment.errors.full_messages.each do |message| %>

@@ -2,3 +2,8 @@ one:
   commenter: Jane
   body: A fixture comment
   article: one
+
+two:
+  commenter: Alex
+  body: A comment on another article
+  article: two

@@ -1,4 +1,8 @@
 class ArticlesController < ApplicationController
+  http_basic_authenticate_with name: ENV["BLOG_USERNAME"].presence || SecureRandom.hex(32),
+                              password: ENV["BLOG_PASSWORD"].presence || SecureRandom.hex(32),
+                              except: %i[ index show ]
+
   before_action :set_article, only: %i[ show edit update destroy ]
 
   # GET /articles or /articles.json
